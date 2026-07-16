@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Versículo do Dia</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card" id="card">
+    <p class="date" id="date"></p>
+
+    <blockquote class="verse-text" id="verse-text">Carregando...</blockquote>
+    <p class="verse-ref" id="verse-ref"></p>
+
+    <div class="song-suggestion">
+      <p class="song-label">🎵 Sugestão de louvor com o mesmo tema</p>
+      <p class="song-info"><span id="song-title"></span> — <span id="song-artist"></span></p>
+    </div>
+
+    <div class="actions">
+      <button id="new-verse" title="Sortear outro versículo">🔀 Outro versículo</button>
+      <button id="copy" title="Copiar versículo">📋 Copiar</button>
+      <button id="favorite" title="Guardar nos favoritos">🤍 Favoritar</button>
+    </div>
+
+    <details id="favorites-panel">
+      <summary>⭐ Meus favoritos (<span id="fav-count">0</span>)</summary>
+      <ul id="favorites-list"></ul>
+    </details>
+  </main>
+
+  <p class="toast" id="toast"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
