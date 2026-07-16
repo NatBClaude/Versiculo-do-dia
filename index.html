@@ -7,28 +7,52 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="card" id="card">
-    <p class="date" id="date"></p>
+  <main class="app">
+    <section id="screen-verse" class="screen active">
+      <p class="date" id="date"></p>
 
-    <blockquote class="verse-text" id="verse-text">Carregando...</blockquote>
-    <p class="verse-ref" id="verse-ref"></p>
+      <blockquote class="verse-text" id="verse-text">Carregando...</blockquote>
+      <p class="verse-ref" id="verse-ref"></p>
 
-    <div class="song-suggestion">
-      <p class="song-label">🎵 Sugestão de louvor com o mesmo tema</p>
-      <p class="song-info"><span id="song-title"></span> — <span id="song-artist"></span></p>
-    </div>
+      <div class="song-suggestion">
+        <p class="song-label">🎵 Sugestão de louvor com o mesmo tema</p>
+        <p class="song-info"><span id="song-title"></span> — <span id="song-artist"></span></p>
+      </div>
 
-    <div class="actions">
-      <button id="new-verse" title="Sortear outro versículo">🔀 Outro versículo</button>
-      <button id="copy" title="Copiar versículo">📋 Copiar</button>
-      <button id="favorite" title="Guardar nos favoritos">🤍 Favoritar</button>
-    </div>
+      <div class="actions">
+        <button id="new-verse" title="Sortear outro versículo">🔀 Outro versículo</button>
+        <button id="copy" title="Copiar versículo">📋 Copiar</button>
+        <button id="favorite" title="Guardar nos favoritos">🤍 Favoritar</button>
+      </div>
+    </section>
 
-    <details id="favorites-panel">
-      <summary>⭐ Meus favoritos (<span id="fav-count">0</span>)</summary>
+    <section id="screen-study" class="screen">
+      <p class="screen-title">✍️ Breve estudo</p>
+      <p class="study-ref" id="study-ref"></p>
+      <p class="study-text" id="study-text"></p>
+    </section>
+
+    <section id="screen-favorites" class="screen">
+      <p class="screen-title">⭐ Meus favoritos</p>
+      <p class="fav-count-label">Você tem <span id="fav-count">0</span> versículo(s) favoritado(s)</p>
       <ul id="favorites-list"></ul>
-    </details>
+    </section>
   </main>
+
+  <nav class="tabbar">
+    <button class="tab-btn active" data-screen="verse">
+      <span class="tab-icon">📖</span>
+      <span class="tab-label">Versículo</span>
+    </button>
+    <button class="tab-btn" data-screen="study">
+      <span class="tab-icon">✍️</span>
+      <span class="tab-label">Estudo</span>
+    </button>
+    <button class="tab-btn" data-screen="favorites">
+      <span class="tab-icon">⭐</span>
+      <span class="tab-label">Favoritos</span>
+    </button>
+  </nav>
 
   <p class="toast" id="toast"></p>
 
