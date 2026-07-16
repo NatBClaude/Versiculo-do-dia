@@ -105,13 +105,28 @@ body {
 }
 
 .song-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   margin: 0;
   font-size: 1rem;
   color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.song-info:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .song-info span {
   font-weight: 600;
+}
+
+.icon-youtube {
+  color: var(--accent);
 }
 
 .actions {

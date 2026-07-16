@@ -47,6 +47,7 @@ const songArtistEl = document.getElementById("song-artist");
 const studyRefEl = document.getElementById("study-ref");
 const studyTextEl = document.getElementById("study-text");
 const favoriteLabelEl = document.getElementById("favorite-label");
+const songLinkEl = document.getElementById("song-link");
 const screens = document.querySelectorAll(".screen");
 const tabButtons = document.querySelectorAll(".tab-btn");
 
@@ -115,6 +116,11 @@ function showToast(message) {
   showToast._timer = setTimeout(() => toastEl.classList.remove("show"), 2000);
 }
 
+function youtubeSearchUrl(musica) {
+  const query = `${musica.titulo} ${musica.artista}`;
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+}
+
 function renderVerse(verse) {
   currentVerse = verse;
   verseTextEl.textContent = `"${verse.texto}"`;
@@ -123,6 +129,7 @@ function renderVerse(verse) {
   favoriteLabelEl.textContent = isFavorite(verse) ? "Favoritado" : "Favoritar";
   songTitleEl.textContent = verse.musica.titulo;
   songArtistEl.textContent = verse.musica.artista;
+  songLinkEl.href = youtubeSearchUrl(verse.musica);
   studyRefEl.textContent = verse.referencia;
   studyTextEl.textContent = verse.estudo;
 }
@@ -157,7 +164,7 @@ tabButtons.forEach((btn) => {
 });
 
 copyBtn.addEventListener("click", async () => {
-  const text = `"${currentVerse.texto}" — ${currentVerse.referencia}\n🎵 ${currentVerse.musica.titulo} — ${currentVerse.musica.artista}`;
+  const text = `"${currentVerse.texto}" — ${currentVerse.referencia}\n🎵 ${currentVerse.musica.titulo} — ${currentVerse.musica.artista}\n${youtubeSearchUrl(currentVerse.musica)}`;
   try {
     await navigator.clipboard.writeText(text);
     showToast("Versículo copiado!");
